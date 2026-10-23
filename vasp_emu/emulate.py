@@ -183,10 +183,14 @@ class Emulator():
             self.dyn_flags = {key: self.params[key] for key in params}
             return "SDLBFGS"
         if iopt ==  2:
+            #self.dyn_flags = {"trajectory": self.params["trajectory"]}
             return "CG"
         if iopt == 3:
+            keys = ["trajectory","maxstep","dt"]
+            self.dyn_flags = {key: self.params[key] for key in keys}
             return "QuickMin"
         if iopt == 4:
+            #self.dyn_flags = {"trajectory": self.params["trajectory"]}
             return "SD"
         if iopt == 7:
             params = ["trajectory","maxstep","dtmax","finc","fdec","astart","fa","a"]
